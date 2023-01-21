@@ -52,9 +52,9 @@ Route::group(['middleware' => ['ceksession']], function(){
     Route::get('/informasi',[MasukController::class,'lanjut']);
 });
 
-Route::get('/halo', function () {
-    echo '<h1>Hello World</h1>';
-    echo '<p>Nama saya </p>';
+Route::get('/halo/{nama}', function ($nama) {
+    echo '<h1>Halo</h1>';
+    echo '<h2>Nama saya '.$nama.'</h2>';
 });
 
 use App\Http\Controllers\UploadController;
