@@ -34,3 +34,12 @@ Route::group(['prefix' => 'todo', 'controller' => CrudTodoController::class], fu
     Route::post('/update/{id}', 'update');
     Route::delete('/delete/{id}', 'delete');
 });
+
+use App\Http\Controllers\Api\CrudUserController;
+Route::group(['prefix' => 'user', 'controller' => CrudUserController::class], function () {
+    Route::get('/list', 'list');
+    Route::get('/detail/{id}', 'detail');
+    Route::post('/create', 'create');
+    Route::post('/update/{id}', 'update');
+    Route::delete('/delete/{id}', 'delete');
+});
