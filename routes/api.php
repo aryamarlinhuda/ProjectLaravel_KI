@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+use App\Http\Controllers\Api\ApiResponseController;
+Route::controller(ApiResponseController::class)->group(function () {
+    Route::get('/list', 'list');
+    Route::get('/success', 'success');
+    Route::get('/bad-request', 'requestBad');
+    Route::get('/401', 'requestUnathorized');
+});
+
+use App\Http\Controllers\Api\CrudTodoController;
+Route::group(['prefix' => 'todo', 'controller' => CrudTodoController::class], function () {
+    Route::get('/list', 'list');
+    Route::get('/detail/{id}', 'detail');
+    Route::post('/create', 'create');
+    Route::post('/update/{id}', 'update');
+    Route::delete('/delete/{id}', 'delete');
+});
