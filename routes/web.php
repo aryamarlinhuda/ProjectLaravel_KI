@@ -39,7 +39,7 @@ use App\Controllers\loginController;
 Route::group(['middleware' => ['access']], function(){
     Route::controller(loginController::class)->group(function(){
         Route::get('/login',[loginController::class,'index']);
-        Route::post('/submit',[loginController::class.'submit']);
+        Route::post('/submit',[loginController::class,'submit']);
     });
 });
 
