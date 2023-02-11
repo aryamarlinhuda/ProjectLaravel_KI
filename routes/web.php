@@ -17,14 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Controllers\MahasiswaController;
+use App\Http\Controllers\MahasiswaController;
 Route::controller(MahasiswaController::class)->group(function(){
     Route::get('/add-mahasiswa',[MahasiswaController::class,'add']);
     Route::get('/edit-mahasiswa',[MahasiswaController::class,'edit']);
     Route::get('/delete-mahasiswa',[MahasiswaController::class,'delete']);
 });
 
-use App\Controllers\MahasiswaBuilderController;
+use App\Http\Controllers\MahasiswaBuilderController;
 Route::controller(MahasiswaController::class)->group(function(){
     Route::get('/query/add-mahasiswa',[MahasiswaBuilderController::class,'add']);
     Route::get('/query/edit-mahasiswa',[MahasiswaBuilderController::class,'edit']);
@@ -35,7 +35,7 @@ Route::get('/halo', function(){
     return '<h1>'.halo().'</h1>';
 });
 
-use App\Controllers\loginController;
+use App\Http\Controllers\loginController;
 Route::group(['middleware' => ['access']], function(){
     Route::controller(loginController::class)->group(function(){
         Route::get('/login',[loginController::class,'index']);
@@ -43,13 +43,13 @@ Route::group(['middleware' => ['access']], function(){
     });
 });
 
-use App\Controllers\MasukController;
-Route::get('/index',[MasukController::class,'index']);
-Route::get('/masuk',[MasukController::class,'masuk']);
+use App\Http\Controllers\MasukController;
+Route::get('/masuk',[MasukController::class,'index']);
+Route::post('/masuk/login',[MasukController::class,'masuk']);
 
-use App\Controllers\MasukMiddleware;
+use App\Http\Middleware\MasukMiddleware;
 Route::group(['middleware' => ['ceksession']], function(){
-    Route::get('/informasi',[MasukController::class,'lanjut']);
+    Route::get('/informasi',[MasukMiddleware::class,'lanjut']);
 });
 
 Route::get('/halo/{nama}', function ($nama) {
