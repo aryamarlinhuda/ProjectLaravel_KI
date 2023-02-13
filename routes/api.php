@@ -43,3 +43,10 @@ Route::group(['prefix' => 'user', 'controller' => CrudUserController::class], fu
     Route::post('/update/{id}', 'update');
     Route::delete('/delete/{id}', 'delete');
 });
+
+use App\Http\Controllers\Api\AuthController;
+Route::group(['prefix' => 'user-auth', 'controller' => AuthController::class], function () {
+    Route::post('login', 'login');
+    Route::post('user', 'user_logged_in');
+    Route::post('logout', 'logout');
+});
