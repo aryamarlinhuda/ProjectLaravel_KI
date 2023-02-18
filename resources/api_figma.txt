@@ -31,14 +31,26 @@ data populasi {
     provinsi, kabupaten/kota, kecamatan, nama_populasi
 }
 
+<<<<<<< HEAD
 kategori {
     nama
 }
 
 bahan_pangan {
     nama, kode, id_kategori
+=======
+bahan_pangan {
+    nama, kode, category_id
+>>>>>>> 098fd1678e8eb353f41afed423fb8c752d7b3d63
 }
 
 kandungan_bahan_pangan {}
     id_bahan_pangan, kandungan, total
+<<<<<<< HEAD
+=======
+}
+
+category {
+    nama
+>>>>>>> 098fd1678e8eb353f41afed423fb8c752d7b3d63
 }
