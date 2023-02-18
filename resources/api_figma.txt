@@ -1,0 +1,44 @@
+users {
+    nama, email, nomor_telepon, password, foto, status
+}
+
+provinsi {
+    nama, kode
+}
+
+kabupaten {
+    id_provinsi, nama, kode
+}
+
+kecamatan {
+    id_kabupaten, nama, kode
+}
+
+kelurahan {
+    id_kecamatan , nama, kode
+}
+
+data infromasi individu {
+    provinsi, kabupaten, kecamatan, kelurahan, nama, tanggal lahir, usia, jenis kelamin, kondisi fisik,
+    trimester hamil, kesehatan, berat badan, tinggi_badan
+}
+
+individu {
+    id_provinsi, id_kabupaten, tinggi_badan
+}
+
+data populasi {
+    provinsi, kabupaten/kota, kecamatan, nama_populasi
+}
+
+kategori {
+    nama
+}
+
+bahan_pangan {
+    nama, kode, id_kategori
+}
+
+kandungan_bahan_pangan {}
+    id_bahan_pangan, kandungan, total
+}
